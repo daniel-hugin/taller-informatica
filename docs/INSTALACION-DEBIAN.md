@@ -106,7 +106,7 @@ escritorio por su cuenta, el repo deja de describir la máquina real.
 sudo apt update && sudo apt full-upgrade
 sudo apt install -y git
 
-git clone <url-del-repo> taller-informatica
+git clone https://github.com/daniel-hugin/taller-informatica
 cd taller-informatica
 cp config/taller.ejemplo.conf config/taller.conf   # tu copia local, no se versiona
 $EDITOR config/taller.conf     # nombres de los niños, rutas, respaldo
