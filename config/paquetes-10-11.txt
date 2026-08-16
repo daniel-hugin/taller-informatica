@@ -1,0 +1,6 @@
+# Tramo 10-11 años. Del bloque al texto.
+
+thonny
+python3
+python3-pip
+idle

@@ -1,0 +1,8 @@
+# Tramo 11-12 años. Autonomía técnica.
+# Aquí es donde se entrega sudo, como rito y con conversación.
+
+git
+virt-manager
+qemu-system-x86
+libvirt-daemon-system
+build-essential

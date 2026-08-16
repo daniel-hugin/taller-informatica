@@ -1,0 +1,36 @@
+# Base del sistema. Común a todos los tramos de edad.
+
+# Escritorio
+xfce4
+xfce4-goodies
+lightdm
+lightdm-gtk-greeter
+
+# Utilidades de sistema
+rsync
+hdparm
+smartmontools
+git
+curl
+less
+zip
+unzip
+python3
+
+# Navegador. Kiwix trae su propio visor y no lo necesita, pero
+# "navegación básica de un ordenador" es un objetivo declarado del
+# tramo 7-8 (docs/diseno.md), y Turtle Blocks (scripts/15-turtleblocks.sh)
+# es una app web que no arranca sin uno.
+firefox-esr
+
+# Fuentes y localización
+fonts-dejavu
+fonts-liberation2
+locales
+
+# Lectores y visores
+evince
+ristretto
+
+# Ofimática mínima (para cuando toque escribir algo de verdad)
+libreoffice-writer

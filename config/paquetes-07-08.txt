@@ -1,0 +1,28 @@
+# Tramo 7-8 años.
+#
+# Criterio de selección: herramientas de creación abierta por encima de
+# catálogos de ejercicios. Un catálogo se agota; Tux Paint no se acaba nunca.
+# GCompris entra como complemento, no como columna vertebral: las actividades
+# apropiadas para esta edad son unas 60-70 y a media hora diaria se agotan
+# en unos dos meses.
+
+# Creación abierta - la columna vertebral
+tuxpaint
+tuxpaint-stamps-default
+
+# Programación con bloques. Turtle Blocks es el puente: son bloques, pero
+# generan Logo y exportan Python, así que el niño ve que sus bloques SON
+# código. Se instala sin la shell de Sugar.
+#
+# No hay paquete Debian: se vendoriza en scripts/15-turtleblocks.sh y se
+# sirve en local en http://127.0.0.1:3000 (lanzador "Turtle Blocks" en el
+# escritorio). No va en esta lista porque no se instala vía apt.
+
+# Complemento: catálogo de actividades
+gcompris-qt
+
+# Conocimiento offline. Los .zim se descargan aparte al HDD.
+kiwix
+
+# Mecanografía: se activa hacia los 8-9, pero se instala ya.
+klavaro

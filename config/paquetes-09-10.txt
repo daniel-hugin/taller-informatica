@@ -1,0 +1,7 @@
+# Tramo 9-10 años.
+# Proyectos con salida propia. Entorno modificable desde dentro.
+
+luanti
+luanti-server
+kturtle
+sonic-pi

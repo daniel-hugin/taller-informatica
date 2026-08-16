@@ -1,0 +1,125 @@
+diseno.md
+PRUEBAS-VM.md
+# ---------------------------------------------------------------------------
+# Configuración local
+# ---------------------------------------------------------------------------
+# taller.conf lleva los nombres reales de los niños y la ruta del respaldo.
+# En un repositorio público eso no debe salir: se versiona el ejemplo.
+config/taller.conf
+config/*.local
+*.local.conf
+
+# Copias que crea 05-sistema antes de tocar los repositorios
+*.taller-backup
+
+# ---------------------------------------------------------------------------
+# Claude Code
+# ---------------------------------------------------------------------------
+# Se VERSIONA lo compartible (CLAUDE.md, .claude/settings.json,
+# .claude/commands/, .claude/agents/) porque es contexto útil para cualquiera
+# que forkee el taller. Se IGNORA lo personal y lo sensible.
+
+# Permisos y ajustes propios de tu máquina
+.claude/settings.local.json
+.claude/*.local.json
+
+# Credenciales: nunca, bajo ninguna circunstancia
+.claude/.credentials.json
+.claude/credentials.json
+
+# Estado de sesión, caché, telemetría e historial de trabajo
+.claude/projects/
+.claude/todos/
+.claude/history/
+.claude/shell-snapshots/
+.claude/statsig/
+.claude/cache/
+.claude/logs/
+.claude/ide/
+.claude/debug/
+.claude/file-history/
+.claude/plugins/
+.claude/sessions/
+.claude/*.log
+
+# Notas personales, no del proyecto
+CLAUDE.local.md
+
+# Servidores MCP: suelen llevar tokens o rutas de tu máquina
+.mcp.json
+.mcp.local.json
+
+# Otros agentes, por si pruebas alguno
+.cursor/
+.aider*
+.windsurf/
+.continue/
+
+# ---------------------------------------------------------------------------
+# Artefactos de prueba en VM
+# ---------------------------------------------------------------------------
+*.qcow2
+*.qcow
+*.img
+*.iso
+*.vdi
+*.vmdk
+vm/
+pruebas/
+
+# ---------------------------------------------------------------------------
+# Contenido offline
+# ---------------------------------------------------------------------------
+# Los .zim de Kiwix van de varios GB a 100 GB. Se descargan al HDD, jamás
+# se versionan. Ver docs/INSTALACION-DEBIAN.md.
+*.zim
+*.zim.part
+kiwix/
+contenido/
+
+# ---------------------------------------------------------------------------
+# Material del taller que no es público
+# ---------------------------------------------------------------------------
+# Las bitácoras escaneadas, el registro de tres columnas relleno y las fotos
+# del trabajo de los niños son material sobre menores. Las PLANTILLAS vacías
+# sí se versionan; lo relleno, no.
+bitacoras/
+registro/
+fotos/
+archivo/
+*-relleno.*
+*-privado.*
+
+# ---------------------------------------------------------------------------
+# Editores y sistema operativo
+# ---------------------------------------------------------------------------
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+.vscode/
+.idea/
+*.sublime-*
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# Varios
+# ---------------------------------------------------------------------------
+*.tar.gz
+*.tgz
+*.zip
+*.bak
+*.orig
+*.rej
+.env
+.env.*
+secrets/

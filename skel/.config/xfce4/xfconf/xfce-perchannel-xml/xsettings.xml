@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Taller: fuentes e iconos grandes.
+     A los 7-8 años la lectura es todavía costosa y la precisión del puntero
+     limitada. Todo lo de aquí busca objetivos grandes y texto legible. -->
+<channel name="xsettings" version="1.0">
+  <property name="Net" type="empty">
+    <property name="ThemeName" type="string" value="Adwaita"/>
+    <property name="IconThemeName" type="string" value="Adwaita"/>
+    <property name="DoubleClickTime" type="int" value="600"/>
+    <property name="CursorBlink" type="bool" value="true"/>
+  </property>
+  <property name="Gtk" type="empty">
+    <!-- 14pt frente a los 10pt por defecto -->
+    <property name="FontName" type="string" value="Sans 14"/>
+    <property name="MonospaceFontName" type="string" value="Monospace 13"/>
+    <property name="CursorThemeName" type="string" value="Adwaita"/>
+    <property name="CursorThemeSize" type="int" value="48"/>
+    <property name="ToolbarStyle" type="string" value="both"/>
+    <property name="ToolbarIconSize" type="int" value="4"/>
+    <property name="ButtonImages" type="bool" value="true"/>
+    <property name="MenuImages" type="bool" value="true"/>
+  </property>
+  <property name="Xft" type="empty">
+    <property name="DPI" type="int" value="120"/>
+    <property name="Antialias" type="int" value="1"/>
+    <property name="Hinting" type="int" value="1"/>
+    <property name="HintStyle" type="string" value="hintslight"/>
+    <property name="RGBA" type="string" value="rgb"/>
+  </property>
+</channel>

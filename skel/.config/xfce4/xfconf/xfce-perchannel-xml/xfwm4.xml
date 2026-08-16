@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Taller: barras de título grandes y sin efectos.
+     Objetivos grandes para manos poco precisas; sin compositor porque la
+     HD 4000 del T430 no gana nada con él y el arranque es más rápido. -->
+<channel name="xfwm4" version="1.0">
+  <property name="general" type="empty">
+    <property name="title_font" type="string" value="Sans Bold 13"/>
+    <property name="theme" type="string" value="Default"/>
+    <property name="button_layout" type="string" value="O|HMC"/>
+    <property name="click_to_focus" type="bool" value="true"/>
+    <property name="focus_delay" type="int" value="0"/>
+    <property name="snap_to_border" type="bool" value="true"/>
+    <property name="snap_to_windows" type="bool" value="true"/>
+    <property name="snap_width" type="int" value="20"/>
+    <property name="use_compositing" type="bool" value="false"/>
+    <property name="workspace_count" type="int" value="1"/>
+  </property>
+</channel>

@@ -1,0 +1,7 @@
+# Tramo 8-9 años.
+# Llega Scratch: múltiples objetos, eventos concurrentes y coordenadas.
+# A los 7 esto era ruido; ahora es el escalón natural.
+#
+# Scratch 3 no tiene paquete Debian (ni Scratch Desktop soporta Linux).
+# Se instala en scripts/17-scratch.sh (TurboWarp Desktop, compatible .sb3).
+# No va en esta lista porque no se instala vía apt.
