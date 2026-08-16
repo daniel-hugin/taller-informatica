@@ -1,5 +1,3 @@
-diseno.md
-PRUEBAS-VM.md
 # ---------------------------------------------------------------------------
 # Configuración local
 # ---------------------------------------------------------------------------
@@ -89,6 +87,15 @@ fotos/
 archivo/
 *-relleno.*
 *-privado.*
+
+# ---------------------------------------------------------------------------
+# Documentos personales, fuera del kit
+# ---------------------------------------------------------------------------
+# diseno.md es el experimento personal del autor (hipótesis, fases,
+# consentimiento, análisis comercial): no es parte del kit que otros
+# docentes deben poder adaptar. Los criterios de diseño reutilizables
+# están extraídos en README.md, sección "Principios de diseño".
+docs/diseno.md
 
 # ---------------------------------------------------------------------------
 # Editores y sistema operativo

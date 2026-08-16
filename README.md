@@ -11,8 +11,9 @@ incluen detalles sobre acciones a llevar a cabo conforme al avance del niño,dó
 ## Estado
 
 **Fase 0 — montaje.** El itinerario está diseñado pero no ejecutado. Las
-fichas marcadas `borrador` no se han probado todavía con niños reales.
-Ver `docs/` para el documento de diseño completo.
+fichas marcadas `borrador` no se han probado todavía con niños reales. Ver
+la sección [Principios de diseño](#principios-de-diseño) para los criterios
+que sostienen las decisiones del itinerario.
 
 ## Instalación
 
@@ -59,7 +60,7 @@ skel/               configuración de XFCE, se despliega a /etc/skel
 skel-etc/           configuración del gestor de sesión, se despliega a /etc
 actividades/        fichas por tramo de edad
 plantillas/         bitácora imprimible, registro de tres columnas
-docs/               diseño del proyecto y marco metodológico
+docs/               instalación en Debian y pruebas en VM
 ```
 
 La configuración vive en ficheros de datos, no dentro de los scripts. Para
@@ -82,18 +83,44 @@ transcribe.
 
 ## Principios de diseño
 
+- **Progresión por tramos de edad.** Cada salto sigue el desarrollo
+  cognitivo, no el calendario: a los 7-8 años, en estadio operatorio
+  concreto, las herramientas trabajan sobre lo tangible (secuencias,
+  luego bucles); hacia los 8-9 llegan los eventos, el paralelismo y los
+  ficheros reales; hacia los 10-11, el texto y la terminal. El calendario
+  orienta, no frena — si un niño pide antes lo que toca después, dáselo.
+- **Turtle Blocks antes que Scratch.** A los 7-8 años el niño razona sobre
+  lo tangible: puede *ser* la tortuga, caminar el cuadrado por el pasillo,
+  contar los giros con el cuerpo y traducirlo después a bloques. Scratch,
+  con múltiples objetos, eventos concurrentes y coordenadas, es ruido a los
+  7 años pero el escalón natural a los 9. Turtle Blocks es además el
+  puente: son bloques, pero generan Logo y exportan Python, así que el niño
+  ve que sus bloques *son* código.
 - **Creación abierta por encima de catálogos.** Tux Paint no se acaba nunca;
-  las actividades de GCompris apropiadas para 7-8 años se agotan en dos meses
-  a media hora diaria.
+  las actividades de GCompris apropiadas para 7-8 años se agotan en unos dos
+  meses a media hora diaria, y Blockly Games se completa en semanas. Los
+  catálogos son complemento, no columna vertebral.
 - **Fricción cero.** Con sesiones de 30 minutos, 90 segundos de arranque son el
   5% del tiempo útil y el momento exacto de la distracción. Suspender, no apagar.
 - **Sin mecánicas de refuerzo variable.** Nada de rachas, insignias ni puntos.
   La racha *es* la tragaperras, y enseña que la razón para programar es no
   romper un contador.
 - **Lo que fabrican tiene que salir de la pantalla.** Impreso, jugado por otro,
-  escuchado en el coche. Es la única ventaja estructural frente al scroll.
+  escuchado en el coche. Es la única ventaja estructural frente al scroll: el
+  scroll es consumo puro y nunca da "esto lo hice yo".
 - **Sin recogida de datos.** Todo local. Sin cuentas, sin nube, sin telemetría.
   El respaldo al homelab es opcional y está desactivado por defecto.
+
+### Decisiones descartadas
+
+| Descartado | Motivo |
+|---|---|
+| Sugar como sistema único | Elimina el sistema de ficheros, y navegar uno es parte del objetivo; techo pedagógico en ~10-11 años |
+| NixOS para este equipo | Empaquetado de software educativo irregular fuera de Debian/Fedora; el público que adoptaría este kit no lo usa |
+| ISO propio, de entrada | Coste de mantenimiento insostenible para pocas personas y menos adaptable que un repo de texto — nadie forkea una imagen, cualquiera edita un fichero |
+| Gamificación con rachas | Refuerzo variable — importa el mecanismo del adversario (la racha *es* la tragaperras) |
+| Reinstalar entre versiones | La continuidad *es* el objetivo; por eso `/home` va en partición aparte y sobrevive a un salto de versión mayor |
+| Presentarlo como alternativa al móvil | En el momento en que es "lo que te hacen hacer en vez del teléfono", pierde: tiene que ser bueno en sus propios términos |
 
 ## Hardware de referencia
 
