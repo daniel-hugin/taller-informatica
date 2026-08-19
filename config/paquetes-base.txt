@@ -1,6 +1,12 @@
 # Base del sistema. Común a todos los tramos de edad.
 
 # Escritorio
+# xorg y xserver-xorg van explícitos: xfce4 los marca como Recommends, no
+# como Depends, e instala_lista usa --no-install-recommends. Sin ellos el
+# sistema arranca sin servidor X y lightdm.service queda en
+# "Active: failed (Result: exit-code)".
+xorg
+xserver-xorg
 xfce4
 xfce4-goodies
 lightdm

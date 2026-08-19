@@ -85,9 +85,24 @@ donde el modo guiado no sirve.
 | Idioma / país / teclado | Español, España, es |
 | Nombre de máquina | el que quieras |
 | Contraseña de root | **déjala vacía** — así tu usuario entra en `sudo` automáticamente |
-| Usuario | el tuyo, el del adulto. Los de los niños los crea `install.sh` |
+| Usuario | el tuyo, el del adulto. **No lo llames `taller`**: es el nombre que usa `install.sh` para la cuenta de proyectos conjuntos, y si coincide con tu cuenta de administración el instalador aborta al detectarlo (ver `CUENTA_COMPARTIDA` en `config/taller.conf` si necesitas otro nombre). Los de los niños los crea `install.sh` |
 | Réplica de red | `deb.debian.org` |
 | **Selección de software** | ver abajo |
+
+> **Si prefieres definir una contraseña de root, tu usuario NO entrará en el
+> grupo `sudo` automáticamente.** El instalador solo lo añade cuando la
+> contraseña de root se deja vacía; si la rellenas, acabas con una cuenta
+> de administrador sin privilegios de administrador, y `sudo ./install.sh`
+> fallará con "no está en el fichero sudoers".
+>
+> Si ya te ha pasado, entra como root (`su -`, con la contraseña que
+> pusiste) y ejecuta:
+> ```bash
+> usermod -aG sudo tu_usuario
+> ```
+> Los grupos se releen **al iniciar sesión**, no al abrir una shell con
+> `su -`: cierra sesión (o reinicia) antes de probar `sudo` de nuevo, salir
+> del `su -` no basta.
 
 En **Selección de software**, desmarca todo excepto:
 

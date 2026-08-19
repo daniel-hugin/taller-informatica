@@ -200,9 +200,32 @@ crea_directorio() {
 usuario_existe() { id -u "$1" >/dev/null 2>&1; }
 grupo_existe()   { getent group "$1" >/dev/null 2>&1; }
 
+# establece_contrasena_infantil <login>
+# adduser --disabled-password no deja entrar sin contraseña: BLOQUEA la
+# cuenta (passwd -S = L), y lightdm rechaza el login. Se establece aquí la
+# contraseña trivial de CONTRASENA_NINOS en su lugar (ver el porqué en
+# config/taller.ejemplo.conf).
+#
+# Solo actúa si la cuenta AÚN no tiene una contraseña utilizable (passwd -S
+# distinto de "P"): así una contraseña real entregada más adelante, en el
+# tramo 11-12 junto con sudo, no se pisa en un install.sh posterior.
+establece_contrasena_infantil() {
+  local login="$1"
+  local estado=""
+  estado="$(passwd -S "$login" 2>/dev/null | awk '{print $2}')" || true
+
+  if [ "$estado" = "P" ]; then
+    salta "$login ya tiene contraseña establecida"
+    return 0
+  fi
+
+  info "Estableciendo contraseña inicial para $login"
+  ejecuta bash -c 'echo "$1:$2" | chpasswd' _ "$login" "${CONTRASENA_NINOS:?Falta CONTRASENA_NINOS en config/taller.conf}"
+}
+
 # crea_usuario_nino <login> <nombre completo>
-# Sin contraseña: a los 7 años una contraseña es un obstáculo, no seguridad.
-# Se establece más adelante, en la fase 3, junto con la entrega de sudo.
+# Se usa también para la cuenta compartida de proyectos conjuntos: el mismo
+# tratamiento (grupo, cuenta, contraseña trivial) vale para las dos.
 crea_usuario_nino() {
   local login="$1" nombre="$2"
 
@@ -216,4 +239,5 @@ crea_usuario_nino() {
     ejecuta adduser --disabled-password --gecos "$nombre" "$login"
   fi
   ejecuta usermod -aG taller "$login"
+  establece_contrasena_infantil "$login"
 }

@@ -6,6 +6,9 @@
 #   sudo ./install.sh --dry-run        # enseña lo que haría, sin tocar nada
 #   sudo ./install.sh 20-usuarios      # solo un módulo
 #   ./install.sh --lista               # lista los módulos disponibles
+#   sudo ./install.sh --sincronizar-escritorios   # 30-escritorio: aplica el
+#                                                  # /etc/skel del taller a
+#                                                  # cuentas ya creadas
 #
 # Todos los módulos son idempotentes. Reejecutar es seguro y es el modo
 # previsto de trabajo: cuando quieras añadir algo, edita config/ y relanza.
@@ -31,6 +34,7 @@ SELECCION=()
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run|-n) DRY_RUN=1; export DRY_RUN ;;
+    --sincronizar-escritorios) SINCRONIZAR_ESCRITORIOS=1; export SINCRONIZAR_ESCRITORIOS ;;
     --lista|-l)
       for m in $(modulos); do basename "$m" .sh; done
       exit 0 ;;

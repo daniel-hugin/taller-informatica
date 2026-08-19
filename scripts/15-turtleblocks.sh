@@ -16,6 +16,15 @@
 # en seis idiomas que no pintan nada aquí. v1.2 además no llama a ningún
 # CDN externo, así que funciona sin red una vez descargada.
 
+# Guardián: este módulo no es autónomo. Se carga con `source` desde
+# install.sh, que antes ha cargado lib/comun.sh (RAIZ, taller.conf,
+# ejecuta/info/...). Ejecutarlo suelto arranca un proceso nuevo sin nada de
+# eso, y cada línea falla con "orden no encontrada".
+if ! declare -F ejecuta >/dev/null || [ -z "${RAIZ:-}" ]; then
+  echo "Este módulo no se ejecuta solo. Usa: sudo ./install.sh $(basename "${BASH_SOURCE[0]%.sh}")" >&2
+  exit 1
+fi
+
 REPO="https://github.com/sugarlabs/turtleblocksjs.git"
 TAG="v1.2"
 COMMIT_ESPERADO="ea311e131bf65a96d70ca00ff24b24cc4a28a789"

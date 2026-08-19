@@ -12,6 +12,15 @@
 # no hay fichero de sumas publicado en la release, así que el hash de abajo
 # es el que se obtuvo al descargar y comprobar este fichero en concreto.
 
+# Guardián: este módulo no es autónomo. Se carga con `source` desde
+# install.sh, que antes ha cargado lib/comun.sh (RAIZ, taller.conf,
+# ejecuta/info/...). Ejecutarlo suelto arranca un proceso nuevo sin nada de
+# eso, y cada línea falla con "orden no encontrada".
+if ! declare -F ejecuta >/dev/null || [ -z "${RAIZ:-}" ]; then
+  echo "Este módulo no se ejecuta solo. Usa: sudo ./install.sh $(basename "${BASH_SOURCE[0]%.sh}")" >&2
+  exit 1
+fi
+
 VERSION="1.16.0"
 URL="https://github.com/TurboWarp/desktop/releases/download/v${VERSION}/TurboWarp-linux-amd64-${VERSION}.deb"
 SHA256_ESPERADO="a11edc3bdfdf84b730a8972d1285d89c71cd13a38483748d34674f35587c4013"

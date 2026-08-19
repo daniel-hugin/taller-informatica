@@ -8,6 +8,15 @@
 # protege del borrado accidental, no del robo, el vaso de agua ni la
 # fuente que se lleva por delante los dos discos.
 
+# Guardián: este módulo no es autónomo. Se carga con `source` desde
+# install.sh, que antes ha cargado lib/comun.sh (RAIZ, taller.conf,
+# ejecuta/info/...). Ejecutarlo suelto arranca un proceso nuevo sin nada de
+# eso, y cada línea falla con "orden no encontrada".
+if ! declare -F ejecuta >/dev/null || [ -z "${RAIZ:-}" ]; then
+  echo "Este módulo no se ejecuta solo. Usa: sudo ./install.sh $(basename "${BASH_SOURCE[0]%.sh}")" >&2
+  exit 1
+fi
+
 if [ -z "${DESTINO_RESPALDO:-}" ]; then
   salta "DESTINO_RESPALDO sin definir en taller.conf: se omite este módulo"
   return 0 2>/dev/null || exit 0

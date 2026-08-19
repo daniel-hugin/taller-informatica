@@ -31,6 +31,18 @@ software educativo.
   usa `linea_en_fichero`
 - Todo cambio pasa por `ejecuta`, para que `--dry-run` funcione
 - Nada de configuración incrustada: va en `config/`
+- **Guardián al principio de cada módulo de `scripts/`.** Los módulos se
+  cargan con `source` desde `install.sh`, que ya ha cargado `lib/comun.sh`
+  (funciones `ejecuta`/`info`/..., `RAIZ`, `taller.conf`). Ejecutar un
+  módulo suelto (`sudo ./scripts/20-usuarios.sh`) arranca un proceso nuevo
+  sin nada de eso, y cada línea falla con "orden no encontrada". Copia el
+  guardián de cualquier script existente en `scripts/`:
+  ```bash
+  if ! declare -F ejecuta >/dev/null || [ -z "${RAIZ:-}" ]; then
+    echo "Este módulo no se ejecuta solo. Usa: sudo ./install.sh $(basename "${BASH_SOURCE[0]%.sh}")" >&2
+    exit 1
+  fi
+  ```
 - `./probar.sh` en verde antes del PR
 
 Se prefiere bash legible sobre bash elegante. El público objetivo son docentes

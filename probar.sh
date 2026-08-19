@@ -38,6 +38,13 @@ for f in "$RAIZ"/config/paquetes-*.txt; do
   [ "$n" -gt 0 ] && bien "$(basename "$f"): $n paquete(s)" || mal "$(basename "$f") vacío"
 done
 
+titulo "xorg en paquetes-base.txt"
+if sed -e 's/#.*//' "$RAIZ/config/paquetes-base.txt" | grep -qx 'xorg'; then
+  bien "xorg presente"
+else
+  mal "falta 'xorg' en config/paquetes-base.txt: lightdm arrancará sin servidor X (Active: failed)"
+fi
+
 titulo "Configuración de escritorio (XML)"
 if [ -n "$(find "$RAIZ/skel" -name '*.xml' 2>/dev/null)" ]; then
   while IFS= read -r x; do

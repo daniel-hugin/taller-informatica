@@ -110,6 +110,11 @@ transcribe.
   scroll es consumo puro y nunca da "esto lo hice yo".
 - **Sin recogida de datos.** Todo local. Sin cuentas, sin nube, sin telemetría.
   El respaldo al homelab es opcional y está desactivado por defecto.
+- **Contraseña sí, pero trivial.** Las cuentas infantiles no se dejan sin
+  contraseña — `adduser --disabled-password` la bloquea, no la abre, y
+  LightDM rechazaría el login — así que llevan un PIN de cuatro dígitos
+  configurable en `taller.conf` (`CONTRASENA_NINOS`). La contraseña de
+  verdad llega en el tramo 11-12, junto con la entrega de `sudo`.
 
 ### Decisiones descartadas
 
