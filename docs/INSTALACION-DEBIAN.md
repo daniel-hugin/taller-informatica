@@ -49,14 +49,13 @@ riesgo de equivocarse de disco.
    Cualquiera de los dos modos vale, pero **anótalo**: tiene que coincidir con
    cómo particiones
 
-## 4. Particionado — la decisión que importa
+## 4. Particionado
 
 **`/home` va en partición separada.** No es opcional en este proyecto.
 
 La continuidad *es* el taller: dentro de tres años querrás saltar a Debian 14 sin
 que los niños pierdan nada de lo que hicieron a los siete. Con `/home` aparte,
-esa migración no toca su trabajo. Sin ella, cada actualización mayor es una
-negociación con el miedo a perderlo todo.
+esa migración no toca su trabajo. 
 
 Esquema recomendado con SSD + HDD:
 
